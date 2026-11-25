@@ -1,0 +1,14 @@
+node_modules
+.next
+.git
+.env*
+!.env.example
+data
+coverage
+telegram_bot
+images
+*.md
+!README.md
+Dockerfile
+docker-compose*.yml
+lukwolfly.sh

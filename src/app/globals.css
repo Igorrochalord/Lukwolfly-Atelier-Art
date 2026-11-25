@@ -1,0 +1,275 @@
+@import "tailwindcss";
+
+/* ───────────────────────────────────────────────────────────────
+   LUKWOLFLY — tokens
+   "Ateliê à noite": tinta azul-petróleo, papel creme da bancada e
+   acentos tirados das próprias peças (ciano, lima, lilás, rosa).
+   Motivo visual: a costura — linhas tracejadas e etiquetas.
+   ─────────────────────────────────────────────────────────────── */
+@theme {
+  --color-ink: #0b1215;
+  --color-ink-2: #111b1f;
+  --color-ink-3: #182529;
+  --color-line: #263439;
+  --color-line-2: #34474d;
+  --color-mute: #8a9ea3;
+  --color-text: #ecf2ef;
+  --color-paper: #f2ead9;
+  --color-paper-2: #e6dcc6;
+  --color-paper-ink: #1b1712;
+  --color-sky: #72d4f3;
+  --color-lime: #c6f24e;
+  --color-lilac: #b79cff;
+  --color-rose: #ff94a8;
+  --color-amber: #ffc857;
+
+  --font-display: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-instrument), Georgia, serif;
+  --font-sans: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+
+  --ease-out-luk: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-luk: cubic-bezier(0.76, 0, 0.24, 1);
+
+  --breakpoint-xs: 26rem;
+
+  --animate-marquee: marquee 38s linear infinite;
+  --animate-float: float 7s ease-in-out infinite;
+  --animate-pulse-dot: pulse-dot 1.8s ease-in-out infinite;
+
+  @keyframes marquee {
+    to { transform: translateX(-50%); }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0) rotate(var(--r, 0deg)); }
+    50% { transform: translateY(-12px) rotate(calc(var(--r, 0deg) + 1.5deg)); }
+  }
+  @keyframes pulse-dot {
+    0%, 100% { box-shadow: 0 0 0 0 color-mix(in oklab, currentColor 55%, transparent); }
+    50% { box-shadow: 0 0 0 6px transparent; }
+  }
+}
+
+:root {
+  color-scheme: dark;
+  --gutter: clamp(1rem, 3.4vw, 3rem);
+  --header-h: 4.5rem;
+}
+
+@layer base {
+  html {
+    background: var(--color-ink);
+    color: var(--color-text);
+    -webkit-text-size-adjust: 100%;
+    scrollbar-color: var(--color-line-2) var(--color-ink);
+    scroll-padding-top: calc(var(--header-h) + 1rem);
+    overflow-x: clip;
+  }
+  body {
+    background: var(--color-ink);
+    font-family: var(--font-sans);
+    font-optical-sizing: auto;
+    overflow-x: clip;
+    min-height: 100dvh;
+  }
+  ::selection {
+    background: var(--color-lime);
+    color: var(--color-ink);
+  }
+  :focus-visible {
+    outline: 2px dashed var(--color-lime);
+    outline-offset: 3px;
+  }
+  img {
+    user-select: none;
+  }
+  button:not(:disabled), [role="button"] {
+    cursor: pointer;
+  }
+}
+
+/* ─── utilitários ──────────────────────────────────────────── */
+@utility gutter {
+  padding-inline: var(--gutter);
+}
+@utility shell {
+  width: 100%;
+  max-width: 92rem;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+@utility display {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 0.92;
+  font-variation-settings: "opsz" 96, "wdth" 88;
+}
+@utility serif-i {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+@utility label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+/* linha de costura (tracejado) — horizontal */
+@utility stitch {
+  background-image: linear-gradient(to right, currentColor 55%, transparent 0);
+  background-size: 10px 1.5px;
+  background-repeat: repeat-x;
+  background-position: 0 50%;
+  height: 1.5px;
+}
+@utility stitch-box {
+  outline: 1.5px dashed color-mix(in oklab, currentColor 45%, transparent);
+  outline-offset: -7px;
+}
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar { display: none; }
+}
+
+/* ─── componentes ──────────────────────────────────────────── */
+@layer components {
+  /* sublinhado que se desenha no hover */
+  .draw-line {
+    background: linear-gradient(currentColor, currentColor) left 100% / 0% 1.5px no-repeat;
+    transition: background-size 0.5s var(--ease-out-luk);
+  }
+  .draw-line:hover, .draw-line:focus-visible {
+    background-size: 100% 1.5px;
+  }
+
+  /* etiqueta de costura (com furo) */
+  .tag {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.35rem 0.7rem 0.35rem 1.35rem;
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: var(--color-paper);
+    color: var(--color-paper-ink);
+    clip-path: polygon(10px 0, 100% 0, 100% 100%, 10px 100%, 0 50%);
+  }
+  .tag::before {
+    content: "";
+    position: absolute;
+    left: 9px;
+    top: 50%;
+    width: 5px;
+    height: 5px;
+    margin-top: -2.5px;
+    border-radius: 9999px;
+    background: var(--color-ink);
+  }
+
+  .btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    border-radius: 9999px;
+    padding: 0.9rem 1.5rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: -0.01em;
+    overflow: hidden;
+    isolation: isolate;
+    transition: color 0.4s var(--ease-out-luk), transform 0.4s var(--ease-out-luk);
+  }
+  .btn::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    transform: translateY(101%);
+    transition: transform 0.5s var(--ease-out-luk);
+  }
+  .btn:hover::after, .btn:focus-visible::after {
+    transform: translateY(0);
+  }
+  .btn:active { transform: scale(0.97); }
+  .btn-lime { background: var(--color-lime); color: var(--color-ink); }
+  .btn-lime::after { background: var(--color-paper); }
+  .btn-ghost { color: var(--color-text); box-shadow: inset 0 0 0 1.5px var(--color-line-2); }
+  .btn-ghost::after { background: var(--color-text); }
+  .btn-ghost:hover, .btn-ghost:focus-visible { color: var(--color-ink); }
+  .btn-ink { background: var(--color-ink); color: var(--color-paper); }
+  .btn-ink::after { background: var(--color-lilac); }
+  .btn-ink:hover, .btn-ink:focus-visible { color: var(--color-ink); }
+  .btn:disabled { opacity: 0.5; pointer-events: none; }
+
+  /* campos do formulário */
+  .field {
+    width: 100%;
+    background: transparent;
+    border: 0;
+    border-bottom: 1.5px solid var(--color-line-2);
+    padding: 1.4rem 0 0.55rem;
+    font-size: 1.05rem;
+    color: inherit;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+  .field:focus { border-color: var(--color-lime); }
+  .field[aria-invalid="true"] { border-color: var(--color-rose); }
+  .field::placeholder { color: transparent; }
+  select.field { appearance: none; cursor: pointer; }
+  select.field option { background: var(--color-ink-2); color: var(--color-text); }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    border-radius: 9999px;
+    padding: 0.3rem 0.7rem;
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .admin-input {
+    width: 100%;
+    border-radius: 0.6rem;
+    background: var(--color-ink);
+    border: 1px solid var(--color-line-2);
+    padding: 0.55rem 0.75rem;
+    font-size: 0.9rem;
+    color: var(--color-text);
+    outline: none;
+  }
+  .admin-input:focus { border-color: var(--color-lime); }
+}
+
+/* grão de papel sobre tudo */
+.grain {
+  position: fixed;
+  inset: -50%;
+  z-index: 80;
+  pointer-events: none;
+  opacity: 0.07;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .9 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,106 @@
+[
+  {
+    "id": "fursuit-heads",
+    "category": "fursuit",
+    "src": "/media/fursuit-heads.webp",
+    "width": 640,
+    "height": 640,
+    "blur": "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAAAwAgCdASoQABAAA4BaJagCdAYu5Q0zfecreAD+4NeYWUdRHfRJvJ8ZL8KTfVbWD9nT2xlQQkP4oz1hxEMdXy4+MaX1H1Us9b7uKBhmWfNfH7cjCmlyoIHzeedyzOrDuSfIO59H1/vsdo4AC4vodJu0zIOUPpJlkTdgYAAA"
+  },
+  {
+    "id": "arte-badge-seth",
+    "category": "artes",
+    "src": "/media/arte-badge-seth.webp",
+    "width": 476,
+    "height": 366,
+    "blur": "data:image/webp;base64,UklGRpoAAABXRUJQVlA4II4AAAAQAwCdASoQAAwAA4BaJbACdFQAmf86QHBmelLtI+AWH4AA/pG+Qv6+Akt0IvSlEEnK+PzcBlblrnTLHx56WhbMejuEUsDNgiBLUbGb7QabECIapxpxt6+Nr0D+sF38QJt/ZQd2+wonAxzQJsiKsciGKSW6zBORl9IfFFpsHQDYiZDXyMDq7ZffTjHCfgAA"
+  },
+  {
+    "id": "arte-halfbody-hiena",
+    "category": "artes",
+    "src": "/media/arte-halfbody-hiena.webp",
+    "width": 372,
+    "height": 368,
+    "blur": "data:image/webp;base64,UklGRqAAAABXRUJQVlA4IJQAAACQAgCdASoQABAAA4BaJagCdH8AgmyrBh2VOY+BAAD+6sffntaM8No8cy3NpuLMu8glesDPr6cerChM0y3XJZsKCwOOO3txDIk7g5+W32H1X2rKDyLNVUJlZhKWepWr2Y+9FFyKEeVBBFieu2GC73OKG/Wz65x6dXkDaQI4W3XfODOjPBEzXuuYQYFzKC9Bj+OF7voA"
+  },
+  {
+    "id": "arte-badge-joy",
+    "category": "artes",
+    "src": "/media/arte-badge-joy.webp",
+    "width": 480,
+    "height": 318,
+    "blur": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAAAwAgCdASoQAAsAA4BaJQBOgMWgqGVPpX4cOAD+7RBGJbr7ppMOqU8DLHmcbXVsw/7tBJt0XcNPgND+rXnVz/SXULBnQXyTKXZHn0x0kceQNGRZZ8/bI3ex/GRXChkXD2Ua7GKBAIUdsASaSuAAWlHZyTn2YXPYfIAAAA=="
+  },
+  {
+    "id": "arte-ref-m4jor",
+    "category": "artes",
+    "src": "/media/arte-ref-m4jor.webp",
+    "width": 558,
+    "height": 433,
+    "blur": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAAAQAgCdASoQAAwAA4BaJbACdAEWfd9RuAIAAP7berF4G7yq6BUhTBk0u6bba+Ddj682OF1Wsj85P932CAQvv/t9Qf1eLpPYGalhfV0Xp74BYjqAjqzVbQ7cGiLz3f6W3wudngAA"
+  },
+  {
+    "id": "arte-headshot-cavalo",
+    "category": "artes",
+    "src": "/media/arte-headshot-cavalo.webp",
+    "width": 270,
+    "height": 368,
+    "blur": "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAAAwAgCdASoMABAAA4BaJbACdAYuHYokhqosAAD3HcAcyguDL1rnfpT77cJigSVbWe8pDW7PLHHIpQVXn2QvbrakjDlXhlm1Us+VRXsRrT+98qvdL2AUYUysw7GWjGrhQW+RZGlIZiMiBC7NFLct+ofQAAA="
+  },
+  {
+    "id": "pelucias-colagem",
+    "category": "pelucias",
+    "src": "/media/pelucias-colagem.webp",
+    "width": 1275,
+    "height": 1234,
+    "blur": "data:image/webp;base64,UklGRpQAAABXRUJQVlA4IIgAAADQAgCdASoQAA8AA4BaJZgCdEfq7oANjwyg7YE7U7UAAPa2MpOJ8E1UqZoRF4ksSYd/36sPQuG1uWzI7Ozr5Mn1j5XLgX4Z5VS4Us3XfuATW/sk04OeONWE75QY4kWCODaJWVu7xkxa8NnSOd56rj7yM18SRmYo1qDFw1+Bev1d67P5YdKbuWAA"
+  },
+  {
+    "id": "pelucia-01",
+    "category": "pelucias",
+    "src": "/media/pelucia-01.webp",
+    "width": 444,
+    "height": 612,
+    "blur": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAAAQAgCdASoMABAAA4BaJbACdADhj8Bgef04APwtlzNeJL9sp+uiekALCPPZgYJO6MdiU3TF+kZAk6E4qEzVjXB2GX0U+GnymDWulYQ68JBfMGxGxCVyp1kqWerTJHAEj7Q0XopvHnG6ZIAA"
+  },
+  {
+    "id": "pelucia-02",
+    "category": "pelucias",
+    "src": "/media/pelucia-02.webp",
+    "width": 392,
+    "height": 612,
+    "blur": "data:image/webp;base64,UklGRowAAABXRUJQVlA4IIAAAAAQAgCdASoKABAAA4BaJbACdAYuRZpYcQMAAP4Hg9pL9BdFzd9zauXMD7NwvILdfaeTqUECQe4OH0qXlVQW80zQqBfXlzJcq17/W1/6VYPYZcKXiQ1jbtF5lO0pm+zLg4eBi/YC+aEyPpEYmhRtmAPjKgy4zHxytbtgOBAFugYAAA=="
+  },
+  {
+    "id": "pelucia-03",
+    "category": "pelucias",
+    "src": "/media/pelucia-03.webp",
+    "width": 399,
+    "height": 612,
+    "blur": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAAAQAgCdASoKABAAA4BaJYgCdAYxtn0NAdsgAP5rJ7tEDKFMquLqP23TQr4QcqMx75MBNIEsETjEx1NwJVzWLeqe1xbdvnP6Kb753Y3nAi1igfUAufTJbhQ3J0XD7At/oalQ4i8YSAnxpgwAAAA="
+  },
+  {
+    "id": "pelucia-04",
+    "category": "pelucias",
+    "src": "/media/pelucia-04.webp",
+    "width": 444,
+    "height": 590,
+    "blur": "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAABwAgCdASoMABAAA4BaJbACdH8AGZCgBa42eqmAAP6tE4H/fkqHsULuIMfUWfvMwFwfcV/vsZ4HtNjdDHq5nRxAC5Ae7QdU2xynUUYwpKVtVPKhL7G5ZY3Z5VX4EFpqdo6NalXxH3pj7UdLHlAx3AAA"
+  },
+  {
+    "id": "pelucia-05",
+    "category": "pelucias",
+    "src": "/media/pelucia-05.webp",
+    "width": 396,
+    "height": 590,
+    "blur": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAABwAgCdASoLABAAA4BaJagCdAYxFdDKOdQt2NgAAPfaY2/zeZcta/LZF+DME71euP/GHl37otCw39ErboE2d1s9geKR3Y5ZlgAz1d2XGAawSp5orZWrKmWOjCB11k1zJYp0Ta1A9OgPU5wAAAA="
+  },
+  {
+    "id": "pelucia-06",
+    "category": "pelucias",
+    "src": "/media/pelucia-06.webp",
+    "width": 399,
+    "height": 590,
+    "blur": "data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAABQAgCdASoLABAAA4BaJbAC7AYuRad0JknrcgAA/u440MuDM6h5s/wfOSFzO7ZJ8UN7w552+82Xvu/AByEuf8O7lrJ0YdLRY/0+xmgYNjneiBQyaLD9kpOLG8pY0nB+oJP22KXSU+NbWSVdVm+K761OU3gAAA=="
+  }
+]

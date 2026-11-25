@@ -1,0 +1,47 @@
+# LUKWOLFLY — app + túnel Cloudflare
+#   ./lukwolfly.sh up            → túnel rápido (URL *.trycloudflare.com aleatória)
+#   ./lukwolfly.sh up --named    → túnel nomeado (CLOUDFLARE_TUNNEL_TOKEN no .env)
+name: lukwolfly
+
+services:
+  app:
+    build:
+      context: .
+      args:
+        SITE_URL: ${SITE_URL:-http://localhost:3000}
+    image: lukwolfly-web:latest
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      DATA_DIR: /data
+    volumes:
+      # banco SQLite + imagens enviadas pelo /admin (sobrevive a rebuilds)
+      - lukwolfly-data:/data
+    ports:
+      - "${LUK_PORT:-3000}:3000"
+
+  # Túnel rápido: sem conta, URL muda a cada subida do túnel.
+  tunnel:
+    image: cloudflare/cloudflared:latest
+    profiles: ["quick"]
+    restart: unless-stopped
+    command: tunnel --no-autoupdate --url http://app:3000
+    depends_on:
+      app:
+        condition: service_healthy
+
+  # Túnel nomeado: domínio fixo configurado no painel Zero Trust.
+  # No painel, aponte o hostname público para http://app:3000
+  tunnel-named:
+    image: cloudflare/cloudflared:latest
+    profiles: ["named"]
+    restart: unless-stopped
+    command: tunnel --no-autoupdate run
+    environment:
+      TUNNEL_TOKEN: ${CLOUDFLARE_TUNNEL_TOKEN:-}
+    depends_on:
+      app:
+        condition: service_healthy
+
+volumes:
+  lukwolfly-data:

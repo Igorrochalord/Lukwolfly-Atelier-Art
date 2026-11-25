@@ -1,0 +1,24 @@
+# Bot da Lukwolfly (Python). Modo AO VIVO: o código em ./lukwolfly_bot é montado
+# no container e o watchfiles reinicia o bot a cada .py salvo.
+# Requer o site no ar (rede lukwolfly_default, criada pelo ./lukwolfly.sh up).
+name: lukwolfly-bot
+
+services:
+  bot:
+    build: .
+    image: lukwolfly-bot:latest
+    restart: unless-stopped
+    env_file: .env
+    command: ["watchfiles", "--filter", "python", "--sigint-timeout", "10", "python -m lukwolfly_bot", "lukwolfly_bot"]
+    volumes:
+      - ./lukwolfly_bot:/app/lukwolfly_bot:ro
+      - bot-data:/data
+    networks: [lukwolfly]
+
+volumes:
+  bot-data:
+
+networks:
+  lukwolfly:
+    external: true
+    name: lukwolfly_default
